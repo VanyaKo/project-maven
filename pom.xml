@@ -6,7 +6,7 @@
 
     <groupId>jru.module3</groupId>
     <artifactId>project-maven</artifactId>
-    <version>1.0</version>
+    <version>${desktop-game-engine.version}</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
@@ -14,28 +14,40 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <target.lib>${project.build.directory}/lib</target.lib>
+
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <javafx-controls.version>18.0.1</javafx-controls.version>
+        <desktop-game-engine.version>1.0</desktop-game-engine.version>
+        <junit-jupiter-engine.version>5.8.2</junit-jupiter-engine.version>
+
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
+        <maven-install-plugin.version>3.1.1</maven-install-plugin.version>
+        <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+        <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>18.0.1</version>
+            <version>${javafx-controls.version}</version>
         </dependency>
         <dependency>
             <groupId>com.javarush</groupId>
             <artifactId>desktop-game-engine</artifactId>
-            <version>1.0</version>
+            <version>${desktop-game-engine.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.2</version>
+            <version>${junit-jupiter-engine.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -53,7 +65,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -63,7 +75,7 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version>
+                <version>${javafx-maven-plugin.version}</version>
                 <configuration>
                     <mainClass>com.javarush.games.racer.RacerGame</mainClass>
                 </configuration>
@@ -73,7 +85,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>${maven-install-plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>initialize</phase>
@@ -84,7 +96,7 @@
                             <file>lib/desktop-game-engine.jar</file>
                             <groupId>com.javarush</groupId>
                             <artifactId>desktop-game-engine</artifactId>
-                            <version>1.0</version>
+                            <version>${desktop-game-engine.version}</version>
                             <packaging>jar</packaging>
                         </configuration>
                     </execution>
@@ -95,7 +107,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
+                <version>${maven-dependency-plugin.version}</version>
                 <configuration>
                     <outputDirectory>${target.lib}</outputDirectory>
                     <includeScope>compile</includeScope> <!-- Needed runtime scope for jar making -->
@@ -114,7 +126,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>${maven-jar-plugin.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>src/test/**</exclude>
@@ -137,7 +149,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>StrangeTest</exclude>
